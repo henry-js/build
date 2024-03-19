@@ -218,7 +218,7 @@ class Build : NukeBuild
 
     private bool SolutionContainsPackableProject()
     {
-        var packableProjects = Solution.AllProjects.Count(p => p.GetProperty<bool?>("PackAsTool") ?? false);
+        var packableProjects = Solution.AllProjects.Count(p => p.GetProperty<bool?>("IsPackable") ?? false);
         Log.Information("Packable projects found = {Value}", packableProjects);
         return packableProjects > 0;
     }
